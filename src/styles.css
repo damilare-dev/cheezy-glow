@@ -85,14 +85,19 @@
 
 @layer base {
   * {
+    box-sizing: border-box;
     border-color: var(--color-border);
   }
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
+    min-height: 100vh;
+    max-width: 100vw;
+    overflow-x: hidden;
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-display);
@@ -197,4 +202,42 @@
     100% { transform: translateX(-50%); }
   }
   .animate-marquee { animation: scroll-x 40s linear infinite; }
+
+  /* Mobile-first responsive improvements */
+  @media (max-width: 640px) {
+    .container {
+      @apply px-4;
+    }
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      @apply px-6;
+    }
+  }
+
+  /* Improve touch targets on mobile */
+  @media (max-width: 768px) {
+    button, a {
+      min-height: 2.75rem;
+      min-width: 2.75rem;
+    }
+  }
+
+  /* Better scrolling performance */
+  * {
+    scroll-behavior: smooth;
+  }
+
+  /* Reduce animations on reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 }

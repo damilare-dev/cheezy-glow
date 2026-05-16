@@ -20,6 +20,10 @@ import beerImg from "@/assets/beer.jpg";
 import atmo1 from "@/assets/atmosphere1.jpg";
 import atmo2 from "@/assets/atmosphere2.jpg";
 import atmo3 from "@/assets/atmosphere3.jpg";
+import whatsapp1 from "@/assets/WhatsApp Image 2026-05-16 at 1.29.11 PM.jpeg";
+import whatsapp2 from "@/assets/WhatsApp Image 2026-05-16 at 1.29.11 PM (1).jpeg";
+import whatsapp3 from "@/assets/WhatsApp Image 2026-05-16 at 1.29.11 PM (2).jpeg";
+import whatsapp4 from "@/assets/WhatsApp Image 2026-05-16 at 1.29.11 PM (3).jpeg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -44,10 +48,10 @@ export const Route = createFileRoute("/")({
 /* ---------------- HERO ---------------- */
 
 const heroSlides = [
-  { img: heroImg, label: "Storefront" },
-  { img: lottoImg, label: "Lotto" },
-  { img: drinksImg, label: "Cold Drinks" },
-  { img: snacksImg, label: "Snacks" },
+  { img: whatsapp1, label: "Store" },
+  { img: whatsapp2, label: "Inside" },
+  { img: whatsapp3, label: "Entrance" },
+  { img: whatsapp4, label: "Shop" },
 ];
 
 function Hero() {
@@ -64,7 +68,7 @@ function Hero() {
   }, []);
 
   return (
-    <section ref={ref} id="top" className="relative h-screen min-h-[760px] w-full overflow-hidden">
+    <section ref={ref} id="top" className="relative h-screen min-h-[640px] w-full overflow-hidden sm:min-h-[760px]">
       {/* Layered background */}
       <motion.div style={{ y, scale }} className="absolute inset-0">
         <AnimatePresence mode="sync">
@@ -95,13 +99,13 @@ function Hero() {
       {/* Content */}
       <motion.div
         style={{ opacity }}
-        className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-end px-6 pb-24 pt-32"
+        className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-end px-4 pb-16 pt-20 sm:px-6 sm:pb-24 sm:pt-32"
       >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="glass-gold mb-8 inline-flex w-fit items-center gap-2 rounded-full px-4 py-1.5 text-xs uppercase tracking-[0.18em] text-primary"
+          className="glass-gold mb-6 inline-flex w-fit items-center gap-2 rounded-full px-4 py-1.5 text-xs uppercase tracking-[0.18em] text-primary sm:mb-8"
         >
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
@@ -110,7 +114,7 @@ function Hero() {
           Open Now · Cambridge, ON
         </motion.div>
 
-        <h1 className="font-display text-balance text-[clamp(2.75rem,8vw,7.5rem)] font-semibold leading-[0.95] tracking-tight">
+        <h1 className="font-display text-balance text-[clamp(2rem,7vw,7.5rem)] font-semibold leading-[0.95] tracking-tight">
           <Stagger text="Your neighborhood" />
           <br />
           <span className="shimmer">convenience hub.</span>
@@ -120,7 +124,7 @@ function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.1 }}
-          className="mt-8 max-w-xl text-balance text-lg text-muted-foreground"
+          className="mt-6 max-w-xl text-balance text-base text-muted-foreground sm:mt-8 sm:text-lg"
         >
           Lotto, cold drinks, snacks, beer and everyday essentials — curated for the corner,
           open when you need us.
@@ -130,11 +134,20 @@ function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.3 }}
-          className="mt-10 flex flex-wrap items-center gap-4"
+          className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:gap-4"
         >
           <a
+            href="#gallery"
+            className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-gold px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.03] sm:px-7 sm:py-4"
+          >
+            View gallery
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg>
+          </a>
+          <a
             href="#products"
-            className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-gradient-gold px-7 py-4 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.03] animate-pulse-glow"
+            className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-gold px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.03] sm:px-7 sm:py-4"
           >
             Explore the shop
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -143,21 +156,21 @@ function Hero() {
           </a>
           <a
             href="#visit"
-            className="glass inline-flex items-center gap-3 rounded-full px-7 py-4 text-sm font-medium text-foreground transition-all hover:bg-secondary/80"
+            className="glass inline-flex items-center justify-center gap-3 rounded-full px-6 py-3 text-sm font-medium text-foreground transition-all hover:bg-secondary/80"
           >
             Get directions
           </a>
         </motion.div>
 
         {/* Slide indicators */}
-        <div className="mt-16 flex items-center gap-6">
+        <div className="mt-12 flex flex-wrap items-center gap-4 sm:mt-16 sm:gap-6">
           {heroSlides.map((s, i) => (
             <button
               key={s.label}
               onClick={() => setActive(i)}
-              className="group flex items-center gap-3 text-xs uppercase tracking-widest"
+              className="group flex items-center gap-2 text-xs uppercase tracking-widest transition-all hover:opacity-100 sm:gap-3"
             >
-              <span className="relative block h-px w-12 overflow-hidden bg-foreground/20">
+              <span className="relative block h-px w-8 overflow-hidden bg-foreground/20 sm:w-12">
                 {i === active && (
                   <motion.span
                     layoutId="slide-bar"
@@ -179,7 +192,7 @@ function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2 }}
-        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
+        className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2 sm:bottom-8"
       >
         <div className="flex h-10 w-6 items-start justify-center rounded-full border border-foreground/30 p-1">
           <motion.div
@@ -243,6 +256,67 @@ function Marquee() {
   );
 }
 
+/* ---------------- PHOTO GALLERY ---------------- */
+
+const galleryPhotos = [
+  { src: whatsapp1, alt: "Cheezy Variety storefront" },
+  { src: whatsapp2, alt: "Store interior" },
+  { src: whatsapp3, alt: "Entrance view" },
+  { src: whatsapp4, alt: "Shopping area" },
+];
+
+function GallerySection() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  
+  return (
+    <section id="gallery" ref={ref} className="relative py-16 sm:py-24 md:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7 }}
+          className="mb-12 text-center sm:mb-16"
+        >
+          <p className="mb-3 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-primary sm:mb-4">
+            <span className="h-px w-6 bg-primary sm:w-8" />
+            Inside Cheezy Variety
+            <span className="h-px w-6 bg-primary sm:w-8" />
+          </p>
+          <h2 className="font-display text-[clamp(2rem,5vw,4rem)] font-semibold leading-[0.95] tracking-tight">
+            Your neighborhood store
+            <br />
+            <span className="text-gradient-gold">brought to life.</span>
+          </h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {galleryPhotos.map((photo, i) => (
+            <motion.div
+              key={photo.alt}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              className="group relative aspect-[4/5] overflow-hidden rounded-2xl sm:rounded-3xl border border-border/50 shadow-elevated"
+            >
+              <motion.img
+                src={photo.src}
+                alt={photo.alt}
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/60 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ---------------- LOTTO ---------------- */
 
 function LottoSection() {
@@ -254,26 +328,26 @@ function LottoSection() {
   }, []);
 
   return (
-    <section id="lotto" className="relative overflow-hidden py-32">
+    <section id="lotto" className="relative overflow-hidden py-16 sm:py-24 md:py-32">
       <div
         className="absolute inset-0 opacity-60"
         style={{ background: "var(--gradient-radial-gold)" }}
       />
       <Particles count={30} />
 
-      <div className="relative mx-auto max-w-7xl px-6">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="flex items-end justify-between gap-8"
+          className="mb-12 flex flex-col items-start justify-between gap-6 sm:mb-16 md:flex-row md:items-end"
         >
           <div>
-            <p className="mb-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-primary">
-              <span className="h-px w-8 bg-primary" /> Today feels lucky
+            <p className="mb-3 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-primary sm:mb-4">
+              <span className="h-px w-6 bg-primary sm:w-8" /> Today feels lucky
             </p>
-            <h2 className="font-display text-[clamp(2.5rem,6vw,5rem)] font-semibold leading-[0.95] tracking-tight">
+            <h2 className="font-display text-[clamp(2rem,5vw,5rem)] font-semibold leading-[0.95] tracking-tight">
               The <span className="text-gradient-gold">Lotto</span> counter,
               <br />
               reimagined.
@@ -291,15 +365,15 @@ function LottoSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 1, delay: 0.1 }}
-          className="mt-16 grid gap-6 lg:grid-cols-5"
+          className="grid gap-5 sm:gap-6 lg:grid-cols-5"
         >
-          <div className="glass-gold relative col-span-3 overflow-hidden rounded-3xl p-8 lg:p-12 shadow-elevated noise">
-            <div className="flex items-center justify-between">
+          <div className="glass-gold relative col-span-1 overflow-hidden rounded-2xl p-6 shadow-elevated noise sm:rounded-3xl sm:p-8 lg:col-span-3 lg:p-12">
+            <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
               <div>
                 <p className="text-xs uppercase tracking-widest text-primary/80">Live Draw Simulation</p>
-                <p className="mt-2 font-display text-2xl font-semibold">Lotto 6/49 · Tonight</p>
+                <p className="mt-2 font-display text-xl font-semibold sm:text-2xl">Lotto 6/49 · Tonight</p>
               </div>
-              <div className="glass rounded-full px-4 py-2 text-xs">
+              <div className="glass rounded-full px-3 py-2 text-xs sm:px-4 sm:py-2">
                 Est. Jackpot{" "}
                 <span className="font-semibold text-primary">
                   $<Counter to={18.4} duration={2.4} decimals={1} suffix="M" />
@@ -307,30 +381,30 @@ function LottoSection() {
               </div>
             </div>
 
-            <div className="mt-10 flex flex-wrap gap-3 sm:gap-4">
+            <div className="mt-8 flex flex-wrap gap-2 sm:mt-10 sm:gap-3">
               {draw.map((n, i) => (
                 <RollingBall key={`${draw.join("-")}-${i}`} value={n} delay={i * 0.12} />
               ))}
             </div>
 
-            <p className="mt-10 text-xs text-muted-foreground">
+            <p className="mt-8 text-xs text-muted-foreground sm:mt-10">
               Numbers shown are simulated for ambiance. Always check official OLG draws.
             </p>
           </div>
 
           {/* Scratch tickets */}
-          <div className="col-span-2 grid gap-6">
+          <div className="col-span-1 grid gap-5 sm:gap-6 lg:col-span-2">
             <motion.div
               whileHover={{ rotate: -2, scale: 1.02 }}
               transition={{ type: "spring", stiffness: 200, damping: 18 }}
-              className="glass-gold relative overflow-hidden rounded-3xl p-6 shadow-elevated"
+              className="glass-gold relative overflow-hidden rounded-2xl p-5 shadow-elevated sm:rounded-3xl sm:p-6"
             >
               <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-primary/30 blur-3xl" />
               <p className="text-xs uppercase tracking-widest text-primary">Scratch Pack</p>
-              <p className="mt-3 font-display text-3xl font-semibold">
+              <p className="mt-3 font-display text-2xl font-semibold sm:text-3xl">
                 <Counter to={42} duration={2} />+ titles
               </p>
-              <p className="mt-2 text-sm text-muted-foreground">
+              <p className="mt-2 text-xs text-muted-foreground sm:text-sm">
                 Crossword, Bingo, Set for Life, Cash for Life and seasonal specials.
               </p>
             </motion.div>
@@ -338,14 +412,14 @@ function LottoSection() {
             <motion.div
               whileHover={{ rotate: 2, scale: 1.02 }}
               transition={{ type: "spring", stiffness: 200, damping: 18 }}
-              className="glass relative overflow-hidden rounded-3xl p-6 shadow-elevated"
+              className="glass relative overflow-hidden rounded-2xl p-5 shadow-elevated sm:rounded-3xl sm:p-6"
             >
               <div className="absolute -left-10 -bottom-10 h-40 w-40 rounded-full bg-ember/30 blur-3xl" />
               <p className="text-xs uppercase tracking-widest text-ember">This Year</p>
-              <p className="mt-3 font-display text-3xl font-semibold text-gradient-gold">
+              <p className="mt-3 font-display text-2xl font-semibold text-gradient-gold sm:text-3xl">
                 $<Counter to={12450} duration={2.5} />
               </p>
-              <p className="mt-2 text-sm text-muted-foreground">
+              <p className="mt-2 text-xs text-muted-foreground sm:text-sm">
                 Won by customers at our counter (and counting).
               </p>
             </motion.div>
@@ -426,32 +500,32 @@ const products = [
 
 function ProductsSection() {
   return (
-    <section id="products" className="relative py-32">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="products" className="relative py-16 sm:py-24 md:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
-          className="mb-16 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end"
+          className="mb-10 flex flex-col items-start justify-between gap-6 sm:mb-12 md:mb-16 md:flex-row md:items-end"
         >
           <div>
-            <p className="mb-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-primary">
-              <span className="h-px w-8 bg-primary" /> What's inside
+            <p className="mb-3 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-primary sm:mb-4">
+              <span className="h-px w-6 bg-primary sm:w-8" /> What's inside
             </p>
-            <h2 className="font-display text-[clamp(2.5rem,6vw,5rem)] font-semibold leading-[0.95] tracking-tight">
+            <h2 className="font-display text-[clamp(2rem,5vw,5rem)] font-semibold leading-[0.95] tracking-tight">
               Everything for the
               <br />
               <span className="text-gradient-gold">quick run-in.</span>
             </h2>
           </div>
-          <p className="max-w-sm text-sm text-muted-foreground">
+          <p className="max-w-sm text-xs text-muted-foreground sm:text-sm">
             Hover any tile. Each category opens with a glow — exactly the way it
             feels walking through the doors.
           </p>
         </motion.div>
 
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
           {products.map((p, i) => (
             <ProductCard key={p.title} {...p} index={i} />
           ))}
@@ -501,7 +575,7 @@ function ProductCard({
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.7, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
       style={{ rotateX: rx, rotateY: ry, transformPerspective: 1000 }}
-      className="group relative aspect-[4/5] overflow-hidden rounded-3xl border border-border/50 bg-card shadow-elevated"
+      className="group relative aspect-[4/5] overflow-hidden rounded-2xl border border-border/50 bg-card shadow-elevated sm:rounded-3xl"
     >
       <motion.img
         src={img}
@@ -512,16 +586,16 @@ function ProductCard({
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
-      <div className="absolute left-5 top-5 glass rounded-full px-3 py-1 text-[10px] uppercase tracking-widest text-muted-foreground">
+      <div className="absolute left-3 top-3 glass rounded-full px-2.5 py-1 text-[9px] uppercase tracking-widest text-muted-foreground sm:left-5 sm:top-5 sm:px-3">
         {tag}
       </div>
 
-      <div className="absolute inset-x-0 bottom-0 p-6">
-        <h3 className="font-display text-2xl font-semibold leading-tight">{title}</h3>
-        <p className="mt-2 max-h-0 overflow-hidden text-sm text-muted-foreground opacity-0 transition-all duration-500 group-hover:max-h-24 group-hover:opacity-100">
+      <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6">
+        <h3 className="font-display text-lg font-semibold leading-tight sm:text-2xl">{title}</h3>
+        <p className="mt-2 max-h-0 overflow-hidden text-xs text-muted-foreground opacity-0 transition-all duration-500 group-hover:max-h-24 group-hover:opacity-100 sm:text-sm">
           {desc}
         </p>
-        <div className="mt-4 inline-flex items-center gap-2 text-xs font-medium text-primary opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+        <div className="mt-3 inline-flex items-center gap-2 text-xs font-medium text-primary opacity-0 transition-opacity duration-500 group-hover:opacity-100">
           In store
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
             <path d="M5 12h14M13 5l7 7-7 7" />
@@ -530,7 +604,7 @@ function ProductCard({
       </div>
 
       {/* Glow on hover */}
-      <div className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" style={{ boxShadow: "inset 0 0 60px oklch(0.83 0.16 85 / 25%)" }} />
+      <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100 sm:rounded-3xl" style={{ boxShadow: "inset 0 0 60px oklch(0.83 0.16 85 / 25%)" }} />
     </motion.div>
   );
 }
@@ -544,9 +618,9 @@ function AtmosphereSection() {
   const y2 = useTransform(scrollYProgress, [0, 1], ["10%", "-10%"]);
 
   return (
-    <section id="atmosphere" ref={ref} className="relative py-32">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
+    <section id="atmosphere" ref={ref} className="relative py-16 sm:py-24 md:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="grid gap-8 sm:gap-10 md:gap-12 lg:grid-cols-2 lg:gap-20">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -554,30 +628,30 @@ function AtmosphereSection() {
             transition={{ duration: 0.8 }}
             className="lg:sticky lg:top-32 lg:self-start"
           >
-            <p className="mb-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-primary">
-              <span className="h-px w-8 bg-primary" /> Inside the store
+            <p className="mb-3 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-primary sm:mb-4">
+              <span className="h-px w-6 bg-primary sm:w-8" /> Inside the store
             </p>
-            <h2 className="font-display text-[clamp(2.5rem,6vw,5rem)] font-semibold leading-[0.95] tracking-tight">
+            <h2 className="font-display text-[clamp(2rem,5vw,5rem)] font-semibold leading-[0.95] tracking-tight">
               A corner of Cambridge that
               <span className="text-gradient-gold"> feels like home.</span>
             </h2>
-            <p className="mt-6 max-w-md text-muted-foreground">
+            <p className="mt-4 max-w-md text-sm text-muted-foreground sm:mt-6">
               Warm lighting. Familiar faces. The same staff who remember your
               usual. Cheezy Variety has been the dependable stop on the block
               for years — and we're proud of it.
             </p>
 
-            <div className="mt-10 grid grid-cols-3 gap-4">
+            <div className="mt-8 grid grid-cols-3 gap-3 sm:mt-10 sm:gap-4">
               {[
                 { v: 4.6, l: "Avg. rating", s: "★" },
                 { v: 7, l: "Days a week", s: "" },
                 { v: 100, l: "% neighborhood", s: "%" },
               ].map((s) => (
-                <div key={s.l} className="glass rounded-2xl p-4">
-                  <div className="font-display text-2xl font-semibold text-gradient-gold">
+                <div key={s.l} className="glass rounded-lg p-3 sm:rounded-2xl sm:p-4">
+                  <div className="font-display text-xl font-semibold text-gradient-gold sm:text-2xl">
                     <Counter to={s.v} decimals={s.v % 1 ? 1 : 0} suffix={s.s} />
                   </div>
-                  <p className="mt-1 text-[11px] uppercase tracking-wider text-muted-foreground">
+                  <p className="mt-1 text-[10px] uppercase tracking-wider text-muted-foreground sm:text-[11px]">
                     {s.l}
                   </p>
                 </div>
@@ -585,15 +659,15 @@ function AtmosphereSection() {
             </div>
           </motion.div>
 
-          <div className="relative grid grid-cols-2 gap-5">
-            <motion.div style={{ y: y1 }} className="col-span-2 overflow-hidden rounded-3xl">
-              <img src={atmo1} alt="Aisle at golden hour" loading="lazy" className="h-72 w-full object-cover sm:h-96" />
+          <div className="relative grid grid-cols-2 gap-3 sm:gap-4 md:gap-5">
+            <motion.div style={{ y: y1 }} className="col-span-2 overflow-hidden rounded-2xl sm:rounded-3xl">
+              <img src={atmo1} alt="Aisle at golden hour" loading="lazy" className="h-48 w-full object-cover sm:h-72 md:h-96" />
             </motion.div>
-            <motion.div style={{ y: y2 }} className="overflow-hidden rounded-3xl">
-              <img src={atmo2} alt="Counter exchange" loading="lazy" className="h-56 w-full object-cover sm:h-72" />
+            <motion.div style={{ y: y2 }} className="overflow-hidden rounded-2xl sm:rounded-3xl">
+              <img src={atmo2} alt="Counter exchange" loading="lazy" className="h-40 w-full object-cover sm:h-56 md:h-72" />
             </motion.div>
-            <motion.div style={{ y: y1 }} className="overflow-hidden rounded-3xl">
-              <img src={atmo3} alt="Storefront at night" loading="lazy" className="h-56 w-full object-cover sm:h-72" />
+            <motion.div style={{ y: y1 }} className="overflow-hidden rounded-2xl sm:rounded-3xl">
+              <img src={atmo3} alt="Storefront at night" loading="lazy" className="h-40 w-full object-cover sm:h-56 md:h-72" />
             </motion.div>
           </div>
         </div>
@@ -615,31 +689,31 @@ const reviews = [
 
 function ReviewsSection() {
   return (
-    <section id="reviews" className="relative overflow-hidden py-32">
+    <section id="reviews" className="relative overflow-hidden py-16 sm:py-24 md:py-32">
       <div
         className="absolute inset-0 opacity-50"
         style={{ background: "var(--gradient-radial-gold)" }}
       />
-      <div className="relative mx-auto max-w-7xl px-6">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
-          className="mb-16 text-center"
+          className="mb-10 text-center sm:mb-12 md:mb-16"
         >
-          <p className="mb-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-primary">
-            <span className="h-px w-8 bg-primary" /> Loved by the block
-            <span className="h-px w-8 bg-primary" />
+          <p className="mb-3 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-primary sm:mb-4">
+            <span className="h-px w-6 bg-primary sm:w-8" /> Loved by the block
+            <span className="h-px w-6 bg-primary sm:w-8" />
           </p>
-          <h2 className="font-display text-[clamp(2.5rem,6vw,5rem)] font-semibold leading-[0.95] tracking-tight">
+          <h2 className="font-display text-[clamp(2rem,5vw,5rem)] font-semibold leading-[0.95] tracking-tight">
             What the neighborhood
             <br />
             <span className="text-gradient-gold">is saying.</span>
           </h2>
         </motion.div>
 
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
           {reviews.map((r, i) => (
             <motion.figure
               key={r.name}
@@ -648,23 +722,23 @@ function ReviewsSection() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: i * 0.07 }}
               whileHover={{ y: -6 }}
-              className="glass relative rounded-3xl p-7 shadow-elevated"
+              className="glass relative rounded-2xl p-5 shadow-elevated sm:rounded-3xl sm:p-7"
             >
-              <div className="mb-4 flex gap-1 text-primary">
+              <div className="mb-3 flex gap-1 text-primary sm:mb-4">
                 {Array.from({ length: r.rating }).map((_, k) => (
                   <span key={k}>★</span>
                 ))}
               </div>
-              <blockquote className="text-balance text-base leading-relaxed text-foreground">
+              <blockquote className="text-balance text-sm leading-relaxed text-foreground sm:text-base">
                 "{r.body}"
               </blockquote>
-              <figcaption className="mt-6 flex items-center gap-3">
-                <div className="grid h-9 w-9 place-items-center rounded-full bg-gradient-gold text-xs font-semibold text-primary-foreground">
+              <figcaption className="mt-4 flex items-center gap-2 sm:mt-6 sm:gap-3">
+                <div className="grid h-8 w-8 place-items-center rounded-full bg-gradient-gold text-xs font-semibold text-primary-foreground sm:h-9 sm:w-9">
                   {r.name.charAt(0)}
                 </div>
                 <div>
-                  <p className="text-sm font-medium">{r.name}</p>
-                  <p className="text-xs text-muted-foreground">Verified Google review</p>
+                  <p className="text-xs font-medium sm:text-sm">{r.name}</p>
+                  <p className="text-[10px] text-muted-foreground sm:text-xs">Verified Google review</p>
                 </div>
               </figcaption>
             </motion.figure>
@@ -679,49 +753,49 @@ function ReviewsSection() {
 
 function VisitSection() {
   return (
-    <section id="visit" className="relative py-32">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="grid gap-10 lg:grid-cols-2">
+    <section id="visit" className="relative py-16 sm:py-24 md:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="grid gap-8 sm:gap-10 md:gap-12 lg:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
           >
-            <p className="mb-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-primary">
-              <span className="h-px w-8 bg-primary" /> Find us
+            <p className="mb-3 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-primary sm:mb-4">
+              <span className="h-px w-6 bg-primary sm:w-8" /> Find us
             </p>
-            <h2 className="font-display text-[clamp(2.5rem,6vw,5rem)] font-semibold leading-[0.95] tracking-tight">
+            <h2 className="font-display text-[clamp(2rem,5vw,5rem)] font-semibold leading-[0.95] tracking-tight">
               Right around the
               <br />
               <span className="text-gradient-gold">corner.</span>
             </h2>
 
-            <div className="mt-10 space-y-5">
-              <div className="glass rounded-2xl p-5">
+            <div className="mt-8 space-y-4 sm:mt-10 sm:space-y-5">
+              <div className="glass rounded-lg p-4 sm:rounded-2xl sm:p-5">
                 <p className="text-xs uppercase tracking-widest text-muted-foreground">Address</p>
-                <p className="mt-2 font-display text-lg">Cheezy Variety · Cambridge, Ontario</p>
+                <p className="mt-2 font-display text-base font-semibold sm:text-lg">Cheezy Variety · Cambridge, Ontario</p>
               </div>
-              <div className="grid grid-cols-2 gap-5">
-                <div className="glass rounded-2xl p-5">
+              <div className="grid grid-cols-2 gap-4 sm:gap-5">
+                <div className="glass rounded-lg p-4 sm:rounded-2xl sm:p-5">
                   <p className="text-xs uppercase tracking-widest text-muted-foreground">Hours</p>
-                  <p className="mt-2 font-display text-lg">7am — 11pm</p>
-                  <p className="text-xs text-muted-foreground">Daily</p>
+                  <p className="mt-2 font-display text-base font-semibold sm:text-lg">7am — 11pm</p>
+                  <p className="mt-1 text-xs text-muted-foreground">Daily</p>
                 </div>
-                <div className="glass rounded-2xl p-5">
+                <div className="glass rounded-lg p-4 sm:rounded-2xl sm:p-5">
                   <p className="text-xs uppercase tracking-widest text-muted-foreground">Phone</p>
-                  <a href="tel:+15195551234" className="mt-2 block font-display text-lg text-primary">
+                  <a href="tel:+15195551234" className="mt-2 block font-display text-base font-semibold text-primary sm:text-lg">
                     (519) 555-1234
                   </a>
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
                 <a
                   href="https://www.google.ca/maps/place/Cheezy+Variety/"
                   target="_blank"
                   rel="noreferrer"
-                  className="group inline-flex items-center gap-3 rounded-full bg-gradient-gold px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.03]"
+                  className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-gold px-5 py-3 text-xs font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.03] sm:px-6 sm:py-3 sm:text-sm"
                 >
                   Get directions
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -730,7 +804,7 @@ function VisitSection() {
                 </a>
                 <a
                   href="tel:+15195551234"
-                  className="glass inline-flex items-center gap-3 rounded-full px-6 py-3 text-sm font-medium"
+                  className="glass inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-xs font-medium sm:px-6 sm:text-sm"
                 >
                   Call store
                 </a>
@@ -743,9 +817,9 @@ function VisitSection() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.9 }}
-            className="relative overflow-hidden rounded-3xl border border-border/50 shadow-elevated"
+            className="relative overflow-hidden rounded-2xl border border-border/50 shadow-elevated sm:rounded-3xl"
           >
-            <div className="pointer-events-none absolute inset-0 z-10 rounded-3xl bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+            <div className="pointer-events-none absolute inset-0 z-10 rounded-2xl bg-gradient-to-t from-background/60 via-transparent to-transparent sm:rounded-3xl" />
             {/* Animated pin overlay */}
             <div className="pointer-events-none absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-full">
               <motion.div
@@ -764,7 +838,7 @@ function VisitSection() {
             <iframe
               title="Cheezy Variety on Google Maps"
               src="https://www.google.com/maps?q=Cheezy+Variety+Cambridge+Ontario&output=embed"
-              className="h-[520px] w-full grayscale-[0.4] invert-[0.85] hue-rotate-180"
+              className="h-80 w-full grayscale-[0.4] invert-[0.85] hue-rotate-180 sm:h-[520px]"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
@@ -784,28 +858,28 @@ function Footer() {
         className="absolute inset-x-0 -top-32 h-64 opacity-50"
         style={{ background: "var(--gradient-radial-gold)" }}
       />
-      <div className="relative mx-auto max-w-7xl px-6 py-20">
-        <div className="flex flex-col items-start justify-between gap-10 md:flex-row md:items-end">
+      <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20">
+        <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end md:gap-10">
           <div>
-            <div className="flex items-center gap-3">
-              <span className="grid h-10 w-10 place-items-center rounded-full bg-gradient-gold text-primary-foreground font-display text-lg font-bold shadow-glow">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <span className="grid h-9 w-9 place-items-center rounded-full bg-gradient-gold text-primary-foreground font-display text-base font-bold shadow-glow sm:h-10 sm:w-10 sm:text-lg">
                 C
               </span>
-              <span className="font-display text-xl font-semibold">Cheezy Variety</span>
+              <span className="font-display text-lg font-semibold sm:text-xl">Cheezy Variety</span>
             </div>
-            <p className="mt-6 max-w-sm text-balance text-2xl font-display leading-tight">
+            <p className="mt-4 max-w-sm text-balance text-lg font-display leading-tight sm:mt-6 sm:text-2xl">
               <span className="shimmer">Quick stops.</span>{" "}
               <span className="text-muted-foreground">Better experience.</span>
             </p>
           </div>
 
-          <div className="flex flex-col items-start gap-6 md:items-end">
-            <div className="flex gap-3">
+          <div className="flex flex-col items-start gap-4 sm:gap-6 md:items-end">
+            <div className="flex flex-wrap gap-2 sm:gap-3">
               {["Maps", "Instagram", "Facebook"].map((s) => (
                 <a
                   key={s}
                   href="#"
-                  className="glass hover:glass-gold group rounded-full px-4 py-2 text-xs uppercase tracking-widest transition-all hover:-translate-y-0.5"
+                  className="glass hover:glass-gold group rounded-full px-3 py-2 text-xs uppercase tracking-widest transition-all hover:-translate-y-0.5 sm:px-4"
                 >
                   {s}
                 </a>
@@ -818,8 +892,8 @@ function Footer() {
         </div>
 
         {/* Huge brand text */}
-        <div className="mt-20 select-none overflow-hidden">
-          <p className="text-center font-display text-[clamp(4rem,18vw,16rem)] font-semibold leading-none tracking-tighter text-gradient-gold opacity-90">
+        <div className="mt-12 select-none overflow-hidden sm:mt-20">
+          <p className="text-center font-display text-[clamp(3rem,15vw,16rem)] font-semibold leading-none tracking-tighter text-gradient-gold opacity-90">
             CHEEZY
           </p>
         </div>
@@ -837,13 +911,11 @@ function Index() {
       <main>
         <Hero />
         <Marquee />
-        <LottoSection />
         <ProductsSection />
-        <AtmosphereSection />
-        <ReviewsSection />
-        <VisitSection />
       </main>
       <Footer />
     </div>
   );
 }
+
+export { Hero, Marquee, GallerySection, LottoSection, ProductsSection, AtmosphereSection, ReviewsSection, VisitSection, Footer };

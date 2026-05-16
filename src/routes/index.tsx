@@ -911,7 +911,12 @@ function Index() {
       <main>
         <Hero />
         <Marquee />
+        <GallerySection />
+        <LottoSection />
         <ProductsSection />
+        <AtmosphereSection />
+        <ReviewsSection />
+        <VisitSection />
       </main>
       <Footer />
     </div>
